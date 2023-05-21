@@ -147,7 +147,7 @@ class DP_NEB(object):
     def plot_neb(atoms_path):
 
         fig, ax = plt.subplots()
-        forcefit = fit_images(atoms_path)
+        forcefit = fit_images(atoms_path[1:-1])
         ax.plot(forcefit.path, forcefit.energies, 'o', color='b')
         ax.plot(forcefit.fit_path, forcefit.fit_energies, '-', color='r')
         for index, (x, y) in enumerate(forcefit.lines):
