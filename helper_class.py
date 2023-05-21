@@ -148,11 +148,11 @@ class DP_NEB(object):
 
         fig, ax = plt.subplots()
         forcefit = fit_images(atoms_path)
-        ax.plot(*forcefit.path, *forcefit.energies, 'o', color='k')
-        ax.plot(*forcefit.fit_path, *forcefit.fit_energies, '-', color='k')
+        ax.plot([i for i in forcefit.path], [i for i in forcefit.energies], 'o', color='b')
+        ax.plot([i for i in forcefit.fit_path], [i for i in forcefit.fit_energies], '-', color='r')
         for index, (x, y) in enumerate(forcefit.lines):
             if index == np.argmax(forcefit.energies):
-                ax.plot([i for i in x], y, '-g')
+                ax.plot([i for i in x], y, '-k')
         
         ax.set_xlabel(r'path [Å]')
         ax.set_ylabel('energy [eV]')
